@@ -3,8 +3,8 @@ import boto3
 import sys
 
 role_to_assume = sys.argv[1]
-source_account_number = sys.argv[2]
-source_account_user = sys.argv[3]
+primary_account_number = sys.argv[2]
+primary_account_user = sys.argv[3]
 
 
 # Principal has to exist else this would error
@@ -14,7 +14,7 @@ trust_policy = {
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": f"arn:aws:iam::{source_account_number}:user/{source_account_user}"
+                "AWS": f"arn:aws:iam::{primary_account_number}:user/{primary_account_user}"
             },
             "Action": "sts:AssumeRole",
             "Condition": {}

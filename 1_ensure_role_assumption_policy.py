@@ -3,8 +3,8 @@ import json
 import sys
 
 role_assumption_policy_name = sys.argv[1]
-source_account_alias = sys.argv[2]
-source_account_number = sys.argv[3]
+primary_account_alias = sys.argv[2]
+primary_account_number = sys.argv[3]
 role_to_assume = sys.argv[4]
 
 # Check if the policy already exists
@@ -24,10 +24,10 @@ policy_document = {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": f"{source_account_alias}",
+            "Sid": f"{primary_account_alias}",
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": f"arn:aws:iam::{source_account_number}:role/{role_to_assume}"
+            "Reprimary": f"arn:aws:iam::{primary_account_number}:role/{role_to_assume}"
         }
     ]
 }

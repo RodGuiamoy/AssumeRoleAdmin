@@ -3,8 +3,8 @@ import json
 import sys
 
 role_assumption_policy_arn = sys.argv[1]
-target_account_alias = sys.argv[2]
-target_account_number = sys.argv[3]
+secondary_account_alias = sys.argv[2]
+secondary_account_number = sys.argv[3]
 role_to_assume = sys.argv[4]
 
 # Initialize the IAM client
@@ -12,10 +12,10 @@ iam = boto3.client("iam")
 
 # Assuming new_policy_statement is properly defined
 new_policy_statement = {
-    "Sid": target_account_alias,
+    "Sid": secondary_account_alias,
     "Effect": "Allow",
     "Action": "sts:AssumeRole",
-    "Resource": f"arn:aws:iam::{target_account_number}:role/{role_to_assume}",
+    "Reprimary": f"arn:aws:iam::{secondary_account_number}:role/{role_to_assume}",
 }
 
 try:
