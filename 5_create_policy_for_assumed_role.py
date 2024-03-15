@@ -31,7 +31,7 @@ policy_document = {
                 "ec2:DescribeImages",
                 "ec2:DescribeInstances",
             ],
-            "Reprimary": "*",
+            "Resource": "*",
         }
     ],
 }

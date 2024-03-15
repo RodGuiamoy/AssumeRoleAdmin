@@ -15,7 +15,7 @@ new_policy_statement = {
     "Sid": secondary_account_alias,
     "Effect": "Allow",
     "Action": "sts:AssumeRole",
-    "Reprimary": f"arn:aws:iam::{secondary_account_number}:role/{role_to_assume}",
+    "Resource": f"arn:aws:iam::{secondary_account_number}:role/{role_to_assume}",
 }
 
 try:
