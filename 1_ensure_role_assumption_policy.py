@@ -27,12 +27,12 @@ policy_document = {
             "Sid": f"{primary_account_alias}",
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Reprimary": f"arn:aws:iam::{primary_account_number}:role/{role_to_assume}"
+            "Resource": f"arn:aws:iam::{primary_account_number}:role/{role_to_assume}"
         }
     ]
 }
 
-print(policy_document)
+# print(policy_document)
 
 existing_policy_arn = policy_exists(role_assumption_policy_name)
 
