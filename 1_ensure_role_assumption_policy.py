@@ -32,6 +32,8 @@ policy_document = {
     ]
 }
 
+print(policy_document)
+
 existing_policy_arn = policy_exists(role_assumption_policy_name)
 
 if existing_policy_arn:
