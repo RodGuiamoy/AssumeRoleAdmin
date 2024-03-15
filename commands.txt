@@ -1,0 +1,6 @@
+python .\1_ensure_role_assumption_policy.py "role_assumption_policy_name_0315_00" "sourceaccountalias031500" "554249804926" "role_to_assume_0315_00"
+python .\2_add_target_account_to_role_assumption_policy.py "arn:aws:iam::554249804926:policy/role_assumption_policy_name_0315_00" "targetaccountalias031500" "554249804926" "role_to_assume_0315_00"
+python .\3_ensure_user_for_role_assumption.py "user_0315_00" "arn:aws:iam::554249804926:policy/role_assumption_policy_name_0315_00"
+python .\4_create_assumed_role.py "role_to_assume_0315_00" "554249804926" "user_0315_00"
+python .\5_create_policy_for_assumed_role.py "policy_name_for_assumed_role_0315_00"
+python .\6_attach_policy_to_assumed_role.py "role_to_assume_0315_00" "arn:aws:iam::554249804926:policy/policy_name_for_assumed_role_0315_00"
