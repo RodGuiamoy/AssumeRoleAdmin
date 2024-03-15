@@ -48,5 +48,7 @@ try:
     print("Policy updated successfully:", response)
 except TypeError as e:
     print(f"TypeError: {e}")
+    exit(1)
 except Exception as e:
     print(f"Error updating policy: {e}")
+    exit(1)
