@@ -51,3 +51,4 @@ try:
     print(response['Policy']['Arn'])
 except Exception as e:
     print("Error creating policy:", e)
+    exit(1)

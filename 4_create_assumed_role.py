@@ -49,3 +49,4 @@ except client.exceptions.NoSuchEntityException:
 except Exception as e:
     # Catch any other exceptions and print the error
     print(f"An error occurred: {e}")
+    exit(1)

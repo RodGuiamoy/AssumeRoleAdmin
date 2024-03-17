@@ -16,7 +16,7 @@ def create_iam_policy(policy_name, policy_document):
         return response["Policy"]["Arn"]
     except Exception as e:
         print("Failed to create IAM policy:", str(e))
-        return None
+        exit(1)
 
 
 policy_document = {
