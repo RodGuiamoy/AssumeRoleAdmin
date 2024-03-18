@@ -87,6 +87,7 @@ except ClientError as e:
     # Check for the MalformedPolicyDocument error code
     if e.response['Error']['Code'] == 'MalformedPolicyDocument':
         print(f"WARNING: An account with the alias {secondary_account_alias} has already been added to this policy. No changes will be made.")
+        exit (0)
         # Handle this error specifically without exiting, perhaps log it or notify someone
     else:
         print(f"Unhandled client error: {e}")
