@@ -13,8 +13,18 @@ def create_iam_policy(policy_name, policy_document):
         for response in paginator.paginate(Scope='Local'):
             for policy in response['Policies']:
                 if policy['PolicyName'] == policy_name:
-                    # print(f"Policy {policy_name} already exists.")
-                    return policy['Arn']
+                    # Update policy with new policy document
+                    try:
+                        iam_client.create_policy_version(
+                            PolicyArn=policy['Arn'],
+                            PolicyDocument=policy_document,
+                            SetAsDefault=True
+                        )
+                        print(f"Policy {policy_name} updated successfully.")
+                        return policy['Arn']
+                    except Exception as e:
+                        print("Failed to update IAM policy:", str(e))
+                        exit(1)
     except Exception as e:
         print("Failed to list IAM policies:", str(e))
         exit(1)
