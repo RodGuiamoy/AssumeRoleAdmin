@@ -40,7 +40,6 @@ policy_document = {
                 "ec2:CreateImage",
                 "ec2:DescribeImages",
                 "ec2:DescribeInstances",
-                "ec2:DescribeSnapshots"
             ],
             "Resource": "*",
         }
